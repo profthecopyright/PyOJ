@@ -1,12 +1,14 @@
 import PyOJAgent
+from RestrictedPython import Eval
+from RestrictedPython import Guards
 
 agent = PyOJAgent.PyOJAgent()
 
 submission = """
 
 def add(a, b):
-    # for i in range(10):
-        # pass
+    for i in range(10):
+        pass
 
     return a + b
 
