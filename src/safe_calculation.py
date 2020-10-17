@@ -32,11 +32,34 @@ def safe_calculate(input_str):
     finally:
         return ret
 
+def func_here(x):   # unseen in user scope
+    return x
+
 teststrs = ['1 + 1', '-.2+.8', '(5+2j) / (5-7j)', '0/0', 'a=1', 'import os', 'math.sin(1)',
             'abs(-8)', '1877 ** 177', "os.listdir('/')",
             '(lambda x, y: [a * b for a in range(x) for b in range(y)])(4, 5)',
+            '(lambda x: while(True):pass)(1)',
+            '__builtins__',
+            '(lambda x: a = x + 1, a)(3)',
             '(lambda x: import os)(1)',
+            'func_here(1)',
+            # '(lambda x, y: [a * b for a in range(x) for b in range(y)])(4 ** 444, 5)', # Don't try this!
             "(lambda x: open('sample_problem.txt')(2)", '4', 'open', 'math', 'random', 'random.random()']
+
+bigstr1 = """
+def fun(x):
+    a = x + 1
+    return a + 1
+"""
+
+bigstr2 = """
+class Foo:
+    def __init__(self):
+        pass
+"""
 
 for input_str in teststrs:
     print(input_str, 'returns: ', safe_calculate(input_str))
+
+print(safe_calculate(bigstr1))
+print(safe_calculate(bigstr2))
