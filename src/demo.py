@@ -1,6 +1,4 @@
 import PyOJAgent
-from RestrictedPython import Eval
-from RestrictedPython import Guards
 
 agent = PyOJAgent.PyOJAgent()
 
