@@ -1,3 +1,5 @@
+# only for unix
+# https://stackoverflow.com/questions/366682/how-to-limit-execution-time-of-a-function-call-in-python/
 from RestrictedPython import compile_restricted
 from RestrictedPython import Eval
 from RestrictedPython import Guards
@@ -9,7 +11,6 @@ import os       # os is unavailable in user code scope even we imported os
 import signal
 from contextlib import contextmanager
 
-"""
 class TimeoutException(Exception): pass
 
 @contextmanager
@@ -22,7 +23,6 @@ def time_limit(seconds):
         yield
     finally:
         signal.alarm(0)
-"""
 
 def generate_safe_policy():
     policy_globals = {**safe_globals, **utility_builtins}
@@ -66,8 +66,12 @@ teststrs = ['1 + 1', '-.2+.8', '(5+2j) / (5-7j)', '0/0', 'a=1', 'import os', 'ma
             'len([1] * (1000000000))']
 
 def safe_calculate(input_str):
-    return safe_calculate_without_time_limit(input_str)
-
+    try:
+        with time_limit(10):
+            return safe_calculate_without_time_limit(input_str)
+    except TimeoutException as e:
+        print("safe_calculate: Time out!")
+        return repr(e)
 
 bigstr1 = """
 def fun(x):
