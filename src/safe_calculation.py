@@ -39,9 +39,9 @@ def generate_safe_policy():
 
     return policy_globals
 
-def safe_calculate_without_time_limit(input_str, return_list):
+def safe_calculate_without_time_limit(input_str, return_list, tle_str):
     policy_globals = generate_safe_policy()
-    ret = None
+    ret = tle_str
 
     try:
         bytecode = compile_restricted(input_str, '<calc_exp>', 'eval')
@@ -73,8 +73,9 @@ teststrs = ['1 + 1', '-.2+.8', '(5+2j) / (5-7j)', '0/0', 'a=1', 'import os', 'ma
 def safe_calculate(input_str, time_limit=1):
     with Manager() as manager:
 
+        tle_str = 'Calculate Time out! {0}s'.format(time_limit)
         return_list = manager.list()
-        p = Process(target=safe_calculate_without_time_limit, args=(input_str, return_list))
+        p = Process(target=safe_calculate_without_time_limit, args=(input_str, return_list, tle_str))
         p.start()
         time.sleep(time_limit)
         p.terminate()
