@@ -7,10 +7,9 @@ from RestrictedPython import utility_builtins
 from multiprocessing import Process, Manager
 import time
 import os       # os is unavailable in user code scope even we imported os
-# import math   # math is available in user code scope even we did not import math
+import math   # math is available in user code scope even we did not import math
+import random
 
-import signal
-from contextlib import contextmanager
 
 """
 class TimeoutException(Exception): pass
@@ -27,6 +26,14 @@ def time_limit(seconds):
         signal.alarm(0)
 """
 
+def shit(mask, target, total_length):
+    if total_length < 2:
+        return 'shit: too short!'
+    else:
+        pos = random.randint(1, total_length)
+        return mask * pos + target + mask * (total_length - pos)
+
+
 def generate_safe_policy():
     policy_globals = {**safe_globals, **utility_builtins}
     policy_globals['__builtins__']['__metaclass__'] = type
@@ -36,6 +43,7 @@ def generate_safe_policy():
     policy_globals['_getiter_'] = Eval.default_guarded_getiter
     policy_globals['_getitem_'] = Eval.default_guarded_getitem
     policy_globals['_iter_unpack_sequence_'] = Guards.guarded_iter_unpack_sequence
+    policy_globals['shoot'] = shit
 
     return policy_globals
 
@@ -68,7 +76,7 @@ teststrs = ['1 + 1', '-.2+.8', '(5+2j) / (5-7j)', '0/0', 'a=1', 'import os', 'ma
             'func_here(1)',
             '(lambda x, y: [a * b for a in range(x) for b in range(y)])(4 ** 444, 5)', # Don't try this!
             "(lambda x: open('sample_problem.txt')(2)", '4', 'open', 'math', 'random', 'random.random()',
-            'len([1] * (1000000000))']
+            'len([1] * (1000000000))', "shoot('屎', '尿', 100)"]
 
 def safe_calculate(input_str, time_limit=1):
     with Manager() as manager:
