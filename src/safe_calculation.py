@@ -3,6 +3,9 @@ from RestrictedPython import Eval
 from RestrictedPython import Guards
 from RestrictedPython import safe_globals
 from RestrictedPython import utility_builtins
+
+from multiprocessing import Process, Manager
+import time
 import os       # os is unavailable in user code scope even we imported os
 # import math   # math is available in user code scope even we did not import math
 
@@ -36,7 +39,7 @@ def generate_safe_policy():
 
     return policy_globals
 
-def safe_calculate_without_time_limit(input_str):
+def safe_calculate_without_time_limit(input_str, return_list):
     policy_globals = generate_safe_policy()
     ret = None
 
@@ -48,6 +51,8 @@ def safe_calculate_without_time_limit(input_str):
     else:
         ret = str(result)
     finally:
+        return_list.append(ret)
+        #print(return_list)
         return ret
 
 def func_here(x):   # unseen in user scope
@@ -61,12 +66,25 @@ teststrs = ['1 + 1', '-.2+.8', '(5+2j) / (5-7j)', '0/0', 'a=1', 'import os', 'ma
             '(lambda x: a = x + 1, a)(3)',
             '(lambda x: import os)(1)',
             'func_here(1)',
-            # '(lambda x, y: [a * b for a in range(x) for b in range(y)])(4 ** 444, 5)', # Don't try this!
+            '(lambda x, y: [a * b for a in range(x) for b in range(y)])(4 ** 444, 5)', # Don't try this!
             "(lambda x: open('sample_problem.txt')(2)", '4', 'open', 'math', 'random', 'random.random()',
             'len([1] * (1000000000))']
 
-def safe_calculate(input_str):
-    return safe_calculate_without_time_limit(input_str)
+def safe_calculate(input_str, time_limit=1):
+    with Manager() as manager:
+
+        return_list = manager.list()
+        p = Process(target=safe_calculate_without_time_limit, args=(input_str, return_list))
+        p.start()
+        time.sleep(time_limit)
+        p.terminate()
+        p.join()
+        # print(return_list)
+
+        if return_list:
+            return return_list[0]
+        else:
+            return 'Calculate Time out! {0}s'.format(time_limit)
 
 
 bigstr1 = """
@@ -81,8 +99,10 @@ class Foo:
         pass
 """
 
-for input_str in teststrs:
-    print(input_str, 'returns: ', safe_calculate(input_str))
+if __name__ == '__main__':
 
-print(safe_calculate(bigstr1))
-print(safe_calculate(bigstr2))
+    for input_str in teststrs:
+        print(input_str, 'returns: ', safe_calculate(input_str))
+
+    print(safe_calculate(bigstr1))
+    print(safe_calculate(bigstr2))
