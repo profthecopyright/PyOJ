@@ -9,7 +9,7 @@ def create_gif(text, dir_path='.', filename='test.gif', imgsize=(600, 200), bgco
     font = ImageFont.truetype(fontfile, fontsize)
 
     ctr = 1
-    images = []
+    images = [img_seed]
 
     for i in range(len(text)):
         images.append(img_seed.copy())
