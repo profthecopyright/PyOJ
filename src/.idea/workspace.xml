@@ -14,20 +14,29 @@
       <file leaf-file-name="PyOJAgent.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PyOJAgent.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
+            <state relative-caret-position="22">
               <caret line="2" selection-start-line="2" selection-end-line="9" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gif_demo.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/gif_demo.py">
+      <file leaf-file-name="scel_extractor.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/scel_extractor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="14" column="38" lean-forward="true" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+            <state relative-caret-position="22">
+              <caret line="1" column="33" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="33" />
               <folding>
-                <element signature="e#0#21#0" expanded="true" />
+                <element signature="e#0#13#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="coal_dict.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coal_dict.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-44">
+              <caret line="18459" column="36" lean-forward="true" selection-start-line="18459" selection-start-column="36" selection-end-line="18459" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -54,6 +63,7 @@
         <option value="$PROJECT_DIR$/test_multiprocess.py" />
         <option value="$PROJECT_DIR$/safe_calculation.py" />
         <option value="$PROJECT_DIR$/gif_demo.py" />
+        <option value="$PROJECT_DIR$/scel_extractor.py" />
       </list>
     </option>
   </component>
@@ -102,7 +112,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.gif_demo">
+  <component name="RunManager" selected="Python.scel_extractor">
     <configuration name="gif_demo" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="src" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -175,7 +185,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="safe_calculation_unix" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="scel_extractor" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="src" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -187,7 +197,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/safe_calculation_unix.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scel_extractor.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -213,17 +223,17 @@
     </configuration>
     <list>
       <item itemvalue="Python.safe_calculation" />
-      <item itemvalue="Python.safe_calculation_unix" />
       <item itemvalue="Python.test_multiprocess" />
       <item itemvalue="Python.safe_calculation (1)" />
       <item itemvalue="Python.gif_demo" />
+      <item itemvalue="Python.scel_extractor" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.scel_extractor" />
         <item itemvalue="Python.gif_demo" />
         <item itemvalue="Python.safe_calculation (1)" />
         <item itemvalue="Python.test_multiprocess" />
-        <item itemvalue="Python.safe_calculation" />
         <item itemvalue="Python.safe_calculation" />
       </list>
     </recent_temporary>
@@ -267,20 +277,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://E:/XXX/results.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="24" lean-forward="true" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/safe_calculation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1012">
-          <caret line="55" column="46" selection-start-line="55" selection-start-column="46" selection-end-line="55" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ticker.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -610,19 +606,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/gif_demo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/PyOJAgent.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
+        <state relative-caret-position="22">
           <caret line="2" selection-start-line="2" selection-end-line="9" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gif_demo.py">
+    <entry file="file://$PROJECT_DIR$/coal_dict.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="38" lean-forward="true" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+        <state relative-caret-position="-44">
+          <caret line="18459" column="36" lean-forward="true" selection-start-line="18459" selection-start-column="36" selection-end-line="18459" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scel_extractor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="33" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="33" />
           <folding>
-            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
