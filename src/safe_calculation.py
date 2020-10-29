@@ -34,6 +34,7 @@ def shit(mask, target, total_length):
         return mask * pos + target + mask * (total_length - pos)
 
 
+
 def generate_safe_policy():
     policy_globals = {**safe_globals, **utility_builtins}
     policy_globals['__builtins__']['__metaclass__'] = type
@@ -46,6 +47,7 @@ def generate_safe_policy():
     policy_globals['shoot'] = shit
 
     return policy_globals
+
 
 def safe_calculate_without_time_limit(input_str, return_list, tle_str):
     policy_globals = generate_safe_policy()
@@ -63,8 +65,10 @@ def safe_calculate_without_time_limit(input_str, return_list, tle_str):
         #print(return_list)
         return ret
 
+
 def func_here(x):   # unseen in user scope
     return x
+
 
 teststrs = ['1 + 1', '-.2+.8', '(5+2j) / (5-7j)', '0/0', 'a=1', 'import os', 'math.sin(1)',
             'abs(-8)', '1877 ** 177', "os.listdir('/')",

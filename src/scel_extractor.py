@@ -112,7 +112,7 @@ def scel2txt(file_name):
 if __name__ == '__main__':
 
     # scel所在文件夹路径
-    in_path = "../resources"
+    in_path = "../resources/scel"
 
     fin = [fname for fname in os.listdir(in_path) if fname[-5:] == ".scel"]
     print(fin)
@@ -120,7 +120,7 @@ if __name__ == '__main__':
         f = os.path.join(in_path, f)
         scel2txt(f)
 
-    f = open('coal_dict.txt', 'w')
+    f = open(in_path + '/coal_dict.txt', 'w')
     for count, py, word in GTable:
         f.write(str(count) + '\t\t\t' + py + '\t\t\t' + word + '\n')
     f.close()
